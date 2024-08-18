@@ -55,6 +55,12 @@ void loop() {
     Serial.print(",");
     Serial.print("Yaw:");
     Serial.print(angleZ);
+//    Serial.println(",");
+//    Serial.print("1:");
+//    Serial.print(1);
+//    Serial.println(",");
+//    Serial.print("-1:");
+//    Serial.print(-1);
     Serial.println("");
     printTime = millis(); // タイムスタンプをリセット
   }
@@ -116,9 +122,9 @@ void calculateAngles() {
   previousTime = currentTime;
 
   // 台形則による角度計算
-  angleX += ((previousGyroX + xGyro) / 2.0) * elapsedTime; // X軸の角度
-  angleY += ((previousGyroY + yGyro) / 2.0) * elapsedTime; // Y軸の角度
-  angleZ += ((previousGyroZ + zGyro) / 2.0) * elapsedTime; // Z軸の角度
+  angleX += ((previousGyroX + xGyro) / 2.0) * elapsedTime+0.00023; // X軸の角度
+  angleY += ((previousGyroY + yGyro) / 2.0) * elapsedTime+0.00052; // Y軸の角度
+  angleZ += ((previousGyroZ + zGyro) / 2.0) * elapsedTime-0.00035; // Z軸の角度
 
   // 現在のジャイロ値を次回のために保存
   previousGyroX = xGyro;
